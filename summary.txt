@@ -1,0 +1,17 @@
+Siddartha is an aspiring AI engineer based in India, with the long-term ambition of building a tech company that rivals the MAANG giants.
+
+Contact: Siddartha Thota, based in India. Reachable at 315-832-0974 or invicinc@gmail.com, with profiles on LinkedIn and GitHub.
+
+Education: He holds a dual B.Tech/M.Tech in Metallurgical and Materials Engineering from IIT Madras (2009–2014), and a Master of Science in Computer Science from Syracuse University (2023–2025, GPA 3.75). His graduate coursework covered Data Structures & Algorithms, Database Management Systems, and Operating Systems.
+
+Work Experience: He's currently a Research Intern at Syracuse University (June 2025 – May 2026), where he built an automated earthquake monitoring system that ingests seismic data from the USGS API using FastAPI and PostgreSQL, hitting sub-20ms response times in production. He implemented deduplication through upsert logic, structured ORM queries with filtering, pagination, and aggregate statistics, and designed a multi-service architecture with independent data ingestion, API, and dashboard layers.
+
+Before grad school, he spent over two years as a Software Engineer at Grossmacht Engineers (April 2021 – July 2023), where he built an internal operations platform with FastAPI and PostgreSQL that replaced manual Excel-based tracking across three mining sites. He designed a normalized relational schema modeling projects, employees, and equipment, and iterated on features through direct feedback from site managers and stakeholders.
+
+Projects: His Terraforge Operations Dashboard is a mining operations platform where he architected an AI pipeline spanning Celery/Redis task queues, OpenAI embeddings, pgvector similarity search, Claude API assessments, and WebSocket delivery. It automates safety incident analysis through a RAG-enhanced pipeline that retrieves semantically similar historical incidents and generates risk levels, contributing factors, and corrective actions, all orchestrated asynchronously with Celery and Redis background workers.
+
+EagleStore API is a RESTful e-commerce backend built with Django REST Framework and PostgreSQL, featuring JWT auth, cart and order processing, Redis caching, Celery for background tasks, and pytest coverage for endpoints and permissions.
+
+GameCompass is a responsive game discovery app built with React, TypeScript, and Chakra UI, pulling from the RAWG API across 350,000+ games with infinite scroll pagination via React Query and Zustand.
+
+Skills: Python, SQL, JavaScript, TypeScript, HTML, CSS on the language side. On the tooling side — Django, FastAPI, React, SQLAlchemy, Celery, AWS, Docker, PostgreSQL, Redis, pgvector, WebSockets, Git, and pytest.
