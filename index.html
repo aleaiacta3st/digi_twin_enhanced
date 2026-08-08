@@ -682,14 +682,28 @@ a, button, .example, #send { cursor: crosshair; }
    MOBILE
    ============================ */
 @media (max-width:640px) {
-  #container { padding:22px 14px 60px; }
-  #title { font-size:24px; }
-  #chatbox { min-height:70vh; }
-  #statusbar { font-size:8px; padding:0 10px; }
-  #grid { height:20vh; }
-  .msg { max-width:90%; }
-  #owl { transform:scale(0.7); }
+  #container { padding:10px 10px 40px; }
+  #title { font-size:20px; }
+  #subtitle { font-size:11px; margin-bottom:8px; }
+  #ticker { padding:4px 0; margin-bottom:4px; }
+  #ticker span { font-size:9px; }
+  #chatbox { height:50vh; max-height:50vh; }
+  #messages { padding:12px 12px 80px 12px; gap:8px; }
+  .msg { max-width:90%; padding:10px 14px; font-size:14px; }
+  .msg.assistant { font-size:14px; }
+  #waveform { height:12px; margin:2px 0; }
+  #input-area { margin-top:4px; }
+  #input { min-height:44px; font-size:13px; padding:10px 12px 10px 30px; }
+  #send { padding:0 12px; }
+  #prompt-cursor { font-size:14px; left:10px; }
+  #statusbar { font-size:8px; padding:0 8px; height:24px; }
+  #grid { height:15vh; }
+  #owl { width:120px !important; height:120px !important; }
+  #mini-owl { width:30px; height:30px; }
   #sys-notifs { display:none; }
+  #online { font-size:8px; margin-left:8px; }
+  .example { font-size:11px; padding:8px 10px; }
+  #welcome { padding:20px 10px; gap:16px; }
 }
 </style>
 </head>
@@ -801,7 +815,7 @@ for (var i = 0; i < bootLines.length; i++) {
    DIGITAL RAIN
    ============================ */
 var rain = document.getElementById('rain');
-rain.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:0;opacity:0.12;';
+rain.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:0;opacity:0.18;';
 var rctx = rain.getContext('2d');
 rain.width = window.innerWidth;
 rain.height = window.innerHeight;
