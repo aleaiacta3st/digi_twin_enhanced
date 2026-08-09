@@ -339,14 +339,15 @@ body::after {
 .msg.assistant strong { color:var(--gold); font-weight:600; text-shadow:0 0 6px var(--gold-glow); }
 
 /* Thinking indicator */
-.msg.thinking span {
-  display:inline-block; width:6px; height:6px;
-  background:var(--gold); border-radius:50%;
-  margin:0 2px;
-  animation: thinkingDot 1.4s ease-in-out infinite;
+.msg.thinking {
+  font-family:'Share Tech Mono', monospace;
+  font-size:14px;
+  color:var(--gold);
+  letter-spacing:3px;
+  text-shadow:0 0 6px var(--gold-glow);
+  min-height:40px;
+  overflow:hidden;
 }
-.msg.thinking span:nth-child(2) { animation-delay:0.2s; }
-.msg.thinking span:nth-child(3) { animation-delay:0.4s; }
 
 /* ============================
    WAVEFORM
@@ -991,7 +992,14 @@ function typeUserMessage(div, text) {
 function showThinking() {
   var div = document.createElement('div');
   div.className = 'msg assistant thinking';
-  div.innerHTML = '<span></span><span></span><span></span>';
+  var runes = 'ᚠᚡᚢᚣᚤᚥᚦᚧᚨᚩᚪᚫ∀∂∃∅∆∇ΣΩΨΦΘΛπ◆◇○●△▽';
+  div.textContent = '';
+  for (var i = 0; i < 12; i++) div.textContent += runes.charAt(Math.floor(Math.random() * runes.length));
+  div._runeInterval = setInterval(function() {
+    var out = '';
+    for (var i = 0; i < 12; i++) out += runes.charAt(Math.floor(Math.random() * runes.length));
+    div.textContent = out;
+  }, 120);
   messagesDiv.appendChild(div);
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
   return div;
@@ -1021,6 +1029,7 @@ function sendMessage(text) {
   .then(function(r) { return r.json(); })
   .then(function(data) {
     receiveSound();
+    clearInterval(thinking._runeInterval);
     messagesDiv.removeChild(thinking);
     addMessage('assistant', data.response);
     chatHistory.push({role: 'assistant', content: data.response});
@@ -1028,6 +1037,7 @@ function sendMessage(text) {
     input.focus();
   })
   .catch(function(err) {
+    clearInterval(thinking._runeInterval);
     messagesDiv.removeChild(thinking);
     addMessage('assistant', 'CONNECTION ERROR — NEURAL LINK INTERRUPTED. RETRY.');
     input.disabled = false;
