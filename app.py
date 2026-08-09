@@ -1,5 +1,6 @@
 import os
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from openai import OpenAI
 from context import TWIN_SYSTEM_PROMPT
@@ -15,6 +16,19 @@ openai_client = OpenAI()
 system = [{"role": "system", "content": TWIN_SYSTEM_PROMPT}]
 
 app = FastAPI()
+
+# Allow your frontend to make requests to this backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://siddartha.dev",
+        "https://www.siddartha.dev",
+        "http://localhost:5173",  # Vite dev server
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
