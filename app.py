@@ -23,6 +23,7 @@ app.add_middleware(
     allow_origins=[
         "https://siddartha.dev",
         "https://www.siddartha.dev",
+        "https://digitaltwin.siddartha.dev",
         "http://localhost:5173",  # Vite dev server
     ],
     allow_credentials=True,
